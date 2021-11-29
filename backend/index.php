@@ -1,6 +1,3 @@
-<!-- 給全部檔用的include，因為放上面，其它檔讀中間時也會吃到 -->
-<?php include_once "./api/db.php"; ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,42 +7,33 @@
     <title>問卷系統</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 </head>
-<style>
-.over{overflow:hidden;
-      height:250px;
-      }
-
-</style>
 <body>
 
 <!-- 輪撥區 -->
-<div class="jumbotron p-0 over">  <!-- p = padding -->
-<!-- position-absolute 絕對配置 -->
-<div id="carouselExampleSlidesOnly" class="carousel slide position-relative" data-ride="carousel">
-  <!-- top:-250 -->
-  <div class="carousel-inner position-absolute" style="top:-250px ">
+<div class="jumbotron">
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100 " src="./image/dessert-09.jpg" alt="輪撥1">
+      <img class="d-block w-100" src=".../800x400?auto=yes&bg=777&fg=555&text=First slide" alt="輪撥1">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="./image/dessert-02.jpg" alt="輪撥2">
+      <img class="d-block w-100" src=".../800x400?auto=yes&bg=666&fg=444&text=Second slide" alt="輪撥2">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="./image/dessert-04.jpg" alt="輪撥3">
+      <img class="d-block w-100" src=".../800x400?auto=yes&bg=555&fg=333&text=Third slide" alt="輪撥3">
     </div>
   </div>
 </div>
 </div>    
 
 <?php
-$do=(isset($_GET['do']))?$_GET['do']:'show_vote_list';
-$file="./frontend/".$do.".php";  //字串.php變檔案名
-
+$do=(isset($GET['do']))?$_GET['do']:'add_subject_form';
+$file=$do.".php";  //字串.php變檔案
 //假如檔案存在就include
 if(file_exists($file)){
-  include $file;
+    include $file;
 }else{     //沒檔案就 1.載入預設 2.載入指定
-    include "./frontend/show_vote_list.php";
+    include "./backend/add_subject_form.php";
 }
 ?>
 
