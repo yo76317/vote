@@ -125,4 +125,10 @@ function rows($table,$array){
 //echo rows('options',['topic_id'=>1]);
 
 
+//
+function to($url){
+    header("location:".$url);
+}
+
+
 ?>
