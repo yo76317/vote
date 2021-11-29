@@ -12,5 +12,5 @@ update('options',['count'=>$opt['count']],['id'=>$opt_id]);
 
 //使用header函式
 // header("location:../index.php?do=vote_result");
-to("../index.php?do=vote_result");
+to("../index.php?do=vote_result&id={$opt['topic_id']}");
 ?>

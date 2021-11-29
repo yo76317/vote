@@ -125,10 +125,15 @@ function rows($table,$array){
 //echo rows('options',['topic_id'=>1]);
 
 
-//
+//省下寫hocation這段的時間
 function to($url){
     header("location:".$url);
 }
 
+//任意查詢函式
+function q($sql){
+global $pdo;
+return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+}
 
 ?>

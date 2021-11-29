@@ -15,11 +15,14 @@
       height:250px;
       }
 
+    
+
 </style>
 <body>
 
 <!-- 輪撥區 -->
 <div class="jumbotron p-0 over">  <!-- p = padding -->
+<a href="index.php">  <!-- 整格輪撥都是回首頁 -->
 <!-- position-absolute 絕對配置 -->
 <div id="carouselExampleSlidesOnly" class="carousel slide position-relative" data-ride="carousel">
   <!-- top:-250 -->
@@ -35,8 +38,9 @@
     </div>
   </div>
 </div>
-</div>    
+</div>
 
+<div class="container">
 <?php
 $do=(isset($_GET['do']))?$_GET['do']:'show_vote_list';
 $file="./frontend/".$do.".php";  //字串.php變檔案名
@@ -47,7 +51,9 @@ if(file_exists($file)){
 }else{     //沒檔案就 1.載入預設 2.載入指定
     include "./frontend/show_vote_list.php";
 }
+
 ?>
+</div>
 
 <div class="p-3 text-center text-light bg-primary fixed-bottom">yo76317 地</div>
 
