@@ -1,4 +1,10 @@
-<h1>列出的投票問題列表</h1>
+<h1>列出的投票問題列表
+    <!-- button class可以放到 a標籤內 -->
+    <a href="?do=add_subject_form">
+        <button class="btn btn-primary rounded btn-sm">新增問卷</button>
+    </a>
+</h1>
+
 <?php
 $subjects=all('topics');
 
