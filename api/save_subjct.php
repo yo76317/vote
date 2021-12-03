@@ -16,4 +16,5 @@ foreach($_POST['options'] as $opt){
     insert('options',$opt_array);
 
 }
+
 ?>

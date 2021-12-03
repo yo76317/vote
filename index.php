@@ -40,8 +40,6 @@
       </div>
   </div>
 
-
-
   <div class="container">
     <?php
       $do=(isset($_GET['do']))?$_GET['do']:'show_vote_list';

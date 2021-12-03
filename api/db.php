@@ -2,8 +2,8 @@
     $dsn="mysql:host=localhost;charset=utf8;dbname=yo76317";
     $pdo=new PDO($dsn,'root','');
 
-    //取得符合條件的一筆資料
-    function find($table,$id){
+     //取得符合條件的一筆資料
+     function find($table,$id){
         global $pdo;
         $sql="SELECT * FROM `$table` WHERE ";
 
@@ -19,7 +19,6 @@
 
         return $pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
     }
-
 
 
     //取出指定資料表的所有資料

@@ -15,8 +15,8 @@ echo "</a>";
 //管理題目
 
 echo "<a href='?do=edit_subject&id={$value['id']}' class='d-inline-block col-md-1 text-center'>";
-    echo "<button class='btn btn-info'>管理</button>";
-    echo "</a>";
+echo "<button class='btn btn-info'>管理</button>";
+echo "</a>";
 
 //投票總數
 $count=q("select sum(`count`) as '總計' from `options` where `topic_id`='{$value['id']}'");
