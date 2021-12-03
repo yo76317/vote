@@ -1,6 +1,7 @@
 <?php
     $dsn="mysql:host=localhost;charset=utf8;dbname=yo76317";
     $pdo=new PDO($dsn,'root','');
+    SESSION_START(); //所有的api都吃的到
 
      //取得符合條件的一筆資料
      function find($table,$id){
