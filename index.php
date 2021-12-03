@@ -21,7 +21,7 @@
 <body>
 
   <!-- 輪撥區 -->
-  <div class="jumbotron p-0 over">  <!-- p = padding -->
+  <div class="jumbotron p-0 mb-0 over" style="overflow:hidden;height:250px">>  <!-- p = padding -->
     <a href="index.php">  <!-- 整格輪撥都是回首頁 -->
       <!-- position-absolute 絕對位置配置 -->
       <div id="carouselExampleSlidesOnly" class="carousel slide position-relative" data-ride="carousel">
@@ -40,20 +40,49 @@
       </div>
   </div>
 
-  <div class="container">
-    <?php
-      $do=(isset($_GET['do']))?$_GET['do']:'show_vote_list';
-      $file="./frontend/".$do.".php";  //字串.php變檔案名
+      <nav class="bg-light shadow-lg py-3 px-2 mb-4 d-flex justfiy-content-between">
+        <div>&nbsp;</div>
 
-      //假如檔案存在就include
-      if(file_exists($file)){
-        include $file;
-      }else{     //沒檔案就 1.載入預設 2.載入指定
-        include "./frontend/show_vote_list.php";
-      }
+        <?php
+            if(isset($_SESSION['user'])){
+              echo "<span class='pr-5'>歡迎！{$_SESSION['user']}</span>";
+            }
 
-    ?>
-  </div>
+            if(isset($_SESSION['user'])){
+              echo "<span class='pr-5'>歡迎！{$_SESSION['user']}</span>";
+        ?>
+          
+        <div>
+          <a class="btn btn-sm btn-primary mx-1" href="logout.php">登出</a>
+        </div>
+
+        <?php    
+          }else{
+        ?>
+
+          <div class='float-right'>
+            <a class="btn btn-sm btn-primary mx-1" href="?do=login">會員登入</a>
+            <a class="btn btn-sm btn-info mx-1" href="?do=reg">註冊會員</a>
+          </div>
+
+        <?php
+        }
+        ?>
+      </nav>
+
+      <div>
+        <?php    
+          $do=(isset($_GET['do']))?$_GET['do']:'show_vote_list';
+          $file="./frontend/".$do.".php";  //字串.php變檔案名
+
+          //假如檔案存在就include
+          if(file_exists($file)){
+          include $file;
+          }else{     //沒檔案就 1.載入預設 2.載入指定
+          include "./frontend/show_vote_list.php";
+          }
+        ?>
+      </div>
 
 
   <div class="p-3 text-center text-light bg-primary fixed-bottom">yo76317 地</div>
