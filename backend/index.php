@@ -28,13 +28,13 @@
   <!-- top:-250 -->
   <div class="carousel-inner position-absolute" style="top:-250px ">
     <div class="carousel-item active">
-      <img class="d-block w-100 " src="./image/dessert-09.jpg" alt="輪撥1">
+      <img class="d-block w-100 " src="../image/dessert-09.jpg" alt="輪撥1">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="./image/dessert-02.jpg" alt="輪撥2">
+      <img class="d-block w-100" src="../image/dessert-02.jpg" alt="輪撥2">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="./image/dessert-04.jpg" alt="輪撥3">
+      <img class="d-block w-100" src="../image/dessert-04.jpg" alt="輪撥3">
     </div>
   </div>
 </div>

@@ -1,5 +1,5 @@
 <?php
-include_once "db.php";
+include_once "./db.php";
 
 $opt_id=$_POST['opt'];
 $opt=find("options",$opt_id);
