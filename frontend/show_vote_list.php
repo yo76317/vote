@@ -7,11 +7,17 @@ echo "<ol class='list-group'>";
 foreach ($subjects as $key => $value) {
 //假如rows大於0,就把提目列出
 if(rows('options',['topic_id'=>$value['id']]) > 0){
-echo"<li class='list-group-item'>";
+    echo "<li class='list-group-item'>";
 // 題目   ?當前頁.  &後的id自設，是用來get 
-echo "<a class='d-inline-block col-md-8' href='index.php?do=vote&id={$value['id']}'>";
-echo $value['topic'];
-echo "</a>";
+//有登入的會員才能使用投票功能
+if(isset($_SESSION['user'])){
+    echo "<a class='d-inline-block col-md-8' href='index.php?do=vote&id={$value['id']}'>";
+    echo $value['topic'];
+    echo "</a>";
+}else{
+    
+    echo "<span class='d-inline-block col-md-8'>".$value['topic']."</span>";
+}
 
 //投票總數
 $count=q("SELECT sum(`count`) as '總計' FROM `options` where `topic_id`='{$value['id']}'");
