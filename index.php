@@ -20,44 +20,45 @@
 </style>
 <body>
 
-<!-- 輪撥區 -->
-<div class="jumbotron p-0 over">  <!-- p = padding -->
-<a href="index.php">  <!-- 整格輪撥都是回首頁 -->
-<!-- position-absolute 絕對配置 -->
-<div id="carouselExampleSlidesOnly" class="carousel slide position-relative" data-ride="carousel">
-  <!-- top:-250 -->
-  <div class="carousel-inner position-absolute" style="top:-250px ">
-    <div class="carousel-item active">
-      <img class="d-block w-100 " src="./image/dessert-09.jpg" alt="輪撥1">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="./image/dessert-02.jpg" alt="輪撥2">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="./image/dessert-04.jpg" alt="輪撥3">
-    </div>
+  <!-- 輪撥區 -->
+  <div class="jumbotron p-0 over">  <!-- p = padding -->
+    <a href="index.php">  <!-- 整格輪撥都是回首頁 -->
+      <!-- position-absolute 絕對位置配置 -->
+      <div id="carouselExampleSlidesOnly" class="carousel slide position-relative" data-ride="carousel">
+        <!-- top:-250 -->
+         <div class="carousel-inner position-absolute" style="top:-250px ">
+            <div class="carousel-item active">
+              <img class="d-block w-100 " src="./image/dessert-09.jpg" alt="輪撥1">
+            </div>
+          <div class="carousel-item">
+              <img class="d-block w-100" src="./image/dessert-02.jpg" alt="輪撥2">
+          </div>
+          <div class="carousel-item">
+             <img class="d-block w-100" src="./image/dessert-04.jpg" alt="輪撥3">
+          </div>
+         </div>
+      </div>
   </div>
-</div>
-</div>
-
-<div class="container">
-<?php
-$do=(isset($_GET['do']))?$_GET['do']:'show_vote_list';
-$file="./frontend/".$do.".php";  //字串.php變檔案名
-
-//假如檔案存在就include
-if(file_exists($file)){
-  include $file;
-}else{     //沒檔案就 1.載入預設 2.載入指定
-    include "./frontend/show_vote_list.php";
-}
-
-?>
-</div>
-
-<div class="p-3 text-center text-light bg-primary fixed-bottom">yo76317 地</div>
 
 
+
+  <div class="container">
+    <?php
+      $do=(isset($_GET['do']))?$_GET['do']:'show_vote_list';
+      $file="./frontend/".$do.".php";  //字串.php變檔案名
+
+      //假如檔案存在就include
+      if(file_exists($file)){
+        include $file;
+      }else{     //沒檔案就 1.載入預設 2.載入指定
+        include "./frontend/show_vote_list.php";
+      }
+
+    ?>
+  </div>
+
+
+  <div class="p-3 text-center text-light bg-primary fixed-bottom">yo76317 地</div>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
