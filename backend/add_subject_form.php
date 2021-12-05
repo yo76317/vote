@@ -20,5 +20,5 @@
         } -->
     
 
-<div><input type="submit" value="送出"></div>
+        <div><input type="submit" value="送出"></div>
 </form>

@@ -17,13 +17,13 @@
     <title>後臺問卷系統</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 </head>
-<body>
 <style>
 .container{
         min-height: 544px;
       }
 
 </style>
+<body>
 <!-- 輪撥區 -->
 <div class="jumbotron p-0 mb-0" style="overflow:hidden;height:250px">  <!-- p = padding -->
   <a href="index.php">  <!-- 整格輪撥都是回首頁 -->

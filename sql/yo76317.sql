@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2021-12-03 09:34:58
+-- 產生時間： 2021-12-05 18:48:38
 -- 伺服器版本： 10.4.21-MariaDB
 -- PHP 版本： 7.4.25
 
@@ -39,7 +39,8 @@ CREATE TABLE `ad` (
 --
 
 INSERT INTO `ad` (`id`, `name`, `sh`, `intro`) VALUES
-(1, '245038959_5148008455216238_5907972707057045573_n.jpg', 0, 'mumu');
+(2, '245038959_5148008455216238_5907972707057045573_n.jpg', 1, 'mumu01'),
+(3, '姆抬頭.jpg', 1, 'mumu02');
 
 -- --------------------------------------------------------
 
@@ -59,7 +60,7 @@ CREATE TABLE `options` (
 --
 
 INSERT INTO `options` (`id`, `opt`, `topic_id`, `count`) VALUES
-(1, '選項一:', 1, 15),
+(1, '選項一:', 1, 19),
 (2, '選項二:', 1, 2),
 (3, '選項三:', 1, 1),
 (4, '選項四:', 1, 2),
@@ -71,7 +72,8 @@ INSERT INTO `options` (`id`, `opt`, `topic_id`, `count`) VALUES
 (10, '不好', 3, 0),
 (11, '1', 4, 1),
 (12, '2', 4, 0),
-(13, '3', 4, 0);
+(13, '3', 4, 0),
+(14, '1', 5, 0);
 
 -- --------------------------------------------------------
 
@@ -92,7 +94,8 @@ INSERT INTO `topics` (`id`, `topic`) VALUES
 (1, '1'),
 (2, '2'),
 (3, '今晚吃火鍋?'),
-(4, '123');
+(4, '123'),
+(5, '5');
 
 -- --------------------------------------------------------
 
@@ -102,13 +105,21 @@ INSERT INTO `topics` (`id`, `topic`) VALUES
 
 CREATE TABLE `users` (
   `id` int(11) UNSIGNED NOT NULL,
-  `accout` varchar(12) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `account` varchar(12) COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `password` varchar(12) COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `email` varchar(24) COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `name` varchar(12) COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `gender` varchar(1) COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `birthday` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- 傾印資料表的資料 `users`
+--
+
+INSERT INTO `users` (`id`, `account`, `password`, `email`, `name`, `gender`, `birthday`) VALUES
+(1, 'yo76317', '1234', 'yo76317@yahoo.com.tw', '陳佑青', '男', '2020-01-01'),
+(2, 'yo763171', '12341', '12341', '陳佑青1', '男', '2020-01-01');
 
 --
 -- 已傾印資料表的索引
@@ -146,25 +157,25 @@ ALTER TABLE `users`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `ad`
 --
 ALTER TABLE `ad`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `options`
 --
 ALTER TABLE `options`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `topics`
 --
 ALTER TABLE `topics`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

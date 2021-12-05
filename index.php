@@ -19,27 +19,32 @@
 <body>
 
   <!-- 輪撥區 -->
-  <div class="jumbotron p-0 mb-0 over" style="overflow:hidden;height:250px">>  <!-- p = padding -->
+  <div class="jumbotron p-0 mb-0" style="overflow:hidden;height:250px">  <!-- p = padding -->
     <a href="index.php">  <!-- 整格輪撥都是回首頁 -->
       <!-- position-absolute 絕對位置配置 -->
       <div id="carouselExampleSlidesOnly" class="carousel slide position-relative" data-ride="carousel">
         <!-- top:-250 -->
-         <div class="carousel-inner position-absolute" style="top:-250px ">
+          <div class="carousel-inner position-absolute" style="top:-250px">
               <!-- 輪撥php -->
               <?php
-                $images=['dessert-09.jpg','dessert-02.jpg','dessert-04.jpg'];
-                // 負責$key值從0開始放
+                //取得資料表中狀態為1的廣告圖片
+                $images=all('ad',['sh'=>1]);
+                //使用迴圈來將每一筆廣告圖片依照html的格式顯示在網頁上
                 foreach($images as $key => $image){
+                  //判斷如果是第一筆，會加入一個active的class
                   if($key==0){
                     echo "<div class='carousel-item active'>";
                   }else{
-                    "<div class='carousel-item'>";
+                    echo "<div class='carousel-item'>";
                   }
-                  echo "  <img class='d-block w-100' src='./image/dessert-09.jpg' alt='輪撥1'>";
+                  //帶入圖片的檔名及資訊
+                  echo "  <img class='d-block w-100' src='image/{$image['name']}' title='{$image['intro']}'>";
                   echo "</div>";
-                }
+                  }
               ?>
+          </div>
       </div>
+    </a>
   </div>
 
       <!-- 登入登出按扭 -->
@@ -47,10 +52,11 @@
         <div>&nbsp;</div>
 
         <?php
-            if(isset($_SESSION['user'])){
-              echo "<span class='pr-5'>歡迎！{$_SESSION['user']}</span>";
+            //判斷是否有任何的錯誤訊息存在，有則顯示
+            if(isset($_SESSION['error'])){
+              echo "<span class='text-danger'>".$_SESSION['error']."</span>";
             }
-
+            //判斷是否有登入的紀錄，根據登入狀況，顯示不同的功能按鈕
             if(isset($_SESSION['user'])){
               echo "<span class='pr-5'>歡迎！{$_SESSION['user']}</span>";
         ?>
@@ -72,24 +78,27 @@
          }
         ?>
       </nav>
-
+      
       <!-- include 網頁身體 -->
-      <div>
-        <?php    
+      <div class="container">
+        <?php
+          //根據網址帶的do參數內容來決定要include那一個檔案內容 
           $do=(isset($_GET['do']))?$_GET['do']:'show_vote_list';
+          //建立要引入的檔案路徑
           $file="./frontend/".$do.".php";  //字串.php變檔案名
 
+          //沒檔案就 1.載入預設 2.載入指定
           //假如檔案存在就include
           if(file_exists($file)){
             include $file;
-          }else{     //沒檔案就 1.載入預設 2.載入指定
-          include "./frontend/show_vote_list.php";
-            }
+          }else{
+            include "./frontend/show_vote_list.php";
+          }
         ?>
       </div>
 
 
-  <div class="p-3 text-center text-light bg-primary">yo76317 地</div>
+  <div class="p-3 text-center text-light bg-primary">mack版權所有、歡迎盜用</div>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
